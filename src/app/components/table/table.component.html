@@ -1,7 +1,8 @@
-<app-form></app-form>
-
 <div class="container bg-light p-5">
-    <h2>Produtos Cadastrados:</h2>
+    <app-form [categories]="categories" [product]="product" (saveEmitter)="saveProduct()"></app-form>
+    <div class="display-6">
+        Produtos Cadastrados:
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -14,8 +15,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                
+            <tr *ngFor="let p of products">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.description}}</td>
+                <td>{{p.price | currency:'BRL'}}</td>
+                <td>{{p.category.name}}</td>
+                <td>
+                    <span *ngIf="p.promotion" class="badge bg-success text-white me-1">P</span>
+                    <span *ngIf="p.newProduct" class="badge bg-primary text-white ">L</span>
+                </td>
             </tr>
         </tbody>
     </table>

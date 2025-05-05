@@ -1,61 +1,61 @@
-<div class="container bg-light p-5">
-    <h2>Formulario de Cadastro:</h2>
-    <div class="row">
-        <div class="col-md-2">
-            <label for="productName" class="col-form-label">Nome:</label>
-        </div>
-        <div class="col-md-10 mb-3">
-            <input type="text"  name="productName" id="productName" class="form-control">
-        </div>
+   <div class="display-6">
+        Formulario de Cadastro:
     </div>
-    <div class="row">
-        <div class="col-md-2">
-            <label for="ProductDescription" class="col-form-label">Descrição:</label>
-        </div>
-        <div class="col-md-10 mb-3">
-            <input type="text" name="ProductDescription" id="ProductDescription" class="form-control">
-        </div>
-    </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label for="ProductPrice" class="col-form-label">Preço:</label>
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="ProductPrice" id="ProductPrice" class="form-control">
-            </div>
-            <div class="col-md-2">
-                <label for="ProductType" class="col-form-label">Categoria:</label>
-            </div>
-            <div class="col-md-4">
-                <input type="text" id="ProductType" name="ProductType" class="form-control m-2">
-            </div>
-        </div>
-        <div class="row">
-            <div class=" col-md-2">
-                <label for="ProductOptions">Opções:</label>
-            </div>
-            <div class="col-md-4">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">Promoção</label>
+    <div *ngIf="product" class="row">
+        <div class="col-md-10 offset-md-1">
+            <form #productForm="ngForm">
+                <div class="row mb-3 mt-3">
+                    <label for="ProductName" class="col-form-label col-sm-2">Nome:</label>
+                    <div class="col-sm-10 mb-3">
+                        <input type="text"  name="ProductName" id="ProductName" class="form-control" required [(ngModel)]="product.name">
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class=" col-md-2">
-                <label></label>
-            </div>
-            <div class="col-md-4">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">Lançamento</label>
+
+                <div class="row mb-3 mt-3">
+                    <label for="ProductDescription" class="col-form-label col-sm-2">Descrição:</label>
+                    <div class="col-sm-10 mb-3">
+                        <input type="text"  name="ProductDescription" id="ProductDescription" class="form-control" required [(ngModel)]="product.description">
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <button type="button" class="btn btn-primary mt-4">Cadastrar</button>
-            </div>
+
+                <div class="row mb-3 mt-3">
+                    <label for="ProductPrice" class="col-form-label col-sm-2">Preço:</label>
+                    <div class="col-sm-4">
+                        <input type="text"  name="ProductPrice" id="ProductPrice" class="form-control" required [(ngModel)]="product.price">
+                    </div>
+                    <label for="ProductType" class="col-form-label col-sm-1">Categoria:</label>
+                    <div class="col-sm-5">
+                        <select class="form-select" aria-label="Selecione uma categoria" name="category" id="selectCategory" required [(ngModel)]="product.category">
+                            <option *ngFor="let cat of categories" [ngValue]="cat">
+                                {{cat.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3 mt-3">
+                    <label class="col-form-label col-sm-2">Opções:</label>
+                    <div class="col-sm-4">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" value="" name="promotion" id="checkboxPromotion" [(ngModel)]="product.promotion">
+                            <label class="form-check-label" for="checkboxPromotion">
+                                Promoção
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" value="" name="newproduct" id="checkboxNewProduct" [(ngModel)]="product.newProduct">
+                            <label class="form-check-label" for="checkboxNewProduct">
+                                Lançamento
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3 mt-3">
+                    <div class="col-sm">
+                        <button type="submit" class="btn btn-primary" (click)="registerProduct()" [disabled]="productForm.invalid">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 

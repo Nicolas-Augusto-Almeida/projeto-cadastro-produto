@@ -1,7 +1,0 @@
-export interface product {
-    id: number;
-    name: string;
-    price: number;
-    promotion: boolean;
-    lançamento: boolean;
-}

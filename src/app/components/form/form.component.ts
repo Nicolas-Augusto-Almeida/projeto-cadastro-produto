@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Category } from '../../interfaces/category';
+import { product } from '../../interfaces/Product';
 
 @Component({
   selector: 'app-form',
@@ -8,4 +10,24 @@ import { Component } from '@angular/core';
 })
 export class FormComponent {
 
+  
+  //import do array categories do componente pai: table. utilizando @input.
+  @Input()
+   categories : Category[] = []
+  //adicionar no componente pai: table - <app-form [categories]="categories"></app-form>
+
+  //Criar um objeto product usando a interface(product).
+  @Input()
+  product ?: product;
+  //Fazer o two-way data binding no input do html, utilizando [(ngModel)]="product.name".
+  //colocar o product no componente pai.
+
+  //Output para emitir o evento de salvar o produto.
+  @Output()
+  saveEmitter = new EventEmitter();
+
+  
+  registerProduct() {
+    this.saveEmitter.emit();
+    }
 }
