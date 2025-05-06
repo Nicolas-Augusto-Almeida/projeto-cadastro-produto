@@ -45,17 +45,6 @@
       "promotion": false,
       "newProduct": true,
       "id": 6
-    },
-    {
-      "category": {
-        "id": 1,
-        "name": "Nacional"
-      },
-      "name": "1",
-      "description": "2",
-      "price": "3",
-      "promotion": true,
-      "id": 7
     }
   ],
   "categories": [

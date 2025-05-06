@@ -51,14 +51,27 @@ export class TableComponent {
       next: data => {this.categories = data}
     })
   }
-  saveProduct() {
-    this.productService.save(this.product).subscribe({
-      next: data => {
-        this.products.push(data);
-        this.product = {} as product;
+
+  saveProduct(save: boolean) {
+    if(save){
+      if(this.isediting)
+      {
+        this.productService.update(this.product).subscribe();
       }
-    });
+      else
+      {
+        this.productService.save(this.product).subscribe({
+          next: data => {
+            this.products.push(data);
+            }
+          });
+      }
+    
+    }
+      this.product = {} as product;
+      this.isediting = false;
   }
+
   updateProduct(product:product) {
       this.product = product;
       this.isediting = true;

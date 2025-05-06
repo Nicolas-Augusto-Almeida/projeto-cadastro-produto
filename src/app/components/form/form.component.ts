@@ -28,11 +28,10 @@ export class FormComponent {
   saveEmitter = new EventEmitter();
   
   save() {
-    this.saveEmitter.emit();
+    this.saveEmitter.emit(true);
     }
   cancel() {
-    this.product = {} as product;
-
+    this.saveEmitter.emit(false);
   }  
 
     selectCategory(category1: Category, category2: Category) {
