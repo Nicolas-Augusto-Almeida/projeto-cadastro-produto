@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 2,
-      "name": "Parafuso b4",
+      "name": "Parafuso b5",
       "description": "Fabricado pela zambow",
       "price": 5,
       "category": {
@@ -45,6 +45,28 @@
       "promotion": false,
       "newProduct": true,
       "id": 6
+    },
+    {
+      "name": "bucha",
+      "description": "bucha",
+      "price": "3",
+      "category": {
+        "id": 4,
+        "name": "Pessoal"
+      },
+      "newProduct": true,
+      "id": 7
+    },
+    {
+      "name": "Kit Buchas",
+      "description": "dez buchas",
+      "price": "30",
+      "category": {
+        "id": 2,
+        "name": "Importado"
+      },
+      "promotion": true,
+      "id": 8
     }
   ],
   "categories": [

@@ -20,12 +20,12 @@ export class ProductService {
 
   //serviço que salva um produto.
   save(product: product){
-    return this.http.post<product>('http://localhost:3000/products', product);
+    return this.http.post<product>("http://localhost:3000/products", product);
   }
   delete(product: product): Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/${product.id}`,);
   }
   update(product: product){
-    return this.http.put<product>('http://localhost:3000/products/${product.id}', product);
+    return this.http.put<product>(`http://localhost:3000/products/${product.id}`, product);
   }
 }
