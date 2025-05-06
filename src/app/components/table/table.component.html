@@ -1,5 +1,7 @@
 <div class="container bg-light p-5">
-    <app-form [categories]="categories" [product]="product" (saveEmitter)="saveProduct()"></app-form>
+    <app-form [categories]="categories" [product]="product"  (saveEmitter)="saveProduct()"></app-form>
+
+    <div>
     <div class="display-6">
         Produtos Cadastrados:
     </div>
@@ -12,6 +14,7 @@
                 <th>Preço</th>
                 <th>Categoria</th>
                 <th>Opções</th>
+                <th>Modificar</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +28,12 @@
                     <span *ngIf="p.promotion" class="badge bg-success text-white me-1">P</span>
                     <span *ngIf="p.newProduct" class="badge bg-primary text-white ">L</span>
                 </td>
+                <td>
+                    <button class="btn btn-success me-2"(click)="updateProduct(p)">Alterar</button>
+                    <button class="btn btn-danger" (click)="deleteProduct(p)">Excluir</button>
+                </td>
             </tr>
         </tbody>
     </table>
+    
 </div>

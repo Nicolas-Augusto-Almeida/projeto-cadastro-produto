@@ -1,9 +1,10 @@
+   <app-header></app-header>
    <div class="display-6">
         Formulario de Cadastro:
     </div>
     <div *ngIf="product" class="row">
         <div class="col-md-10 offset-md-1">
-            <form #productForm="ngForm">
+            <form #productForm="ngForm" >
                 <div class="row mb-3 mt-3">
                     <label for="ProductName" class="col-form-label col-sm-2">Nome:</label>
                     <div class="col-sm-10 mb-3">
@@ -25,7 +26,7 @@
                     </div>
                     <label for="ProductType" class="col-form-label col-sm-1">Categoria:</label>
                     <div class="col-sm-5">
-                        <select class="form-select" aria-label="Selecione uma categoria" name="category" id="selectCategory" required [(ngModel)]="product.category">
+                        <select class="form-select" aria-label="Selecione uma categoria" name="category" id="selectCategory" required [(ngModel)]="product.category" [compareWith]="selectCategory">
                             <option *ngFor="let cat of categories" [ngValue]="cat">
                                 {{cat.name}}
                             </option>
@@ -52,7 +53,8 @@
                 </div>
                 <div class="row mb-3 mt-3">
                     <div class="col-sm">
-                        <button type="submit" class="btn btn-primary" (click)="registerProduct()" [disabled]="productForm.invalid">Cadastrar</button>
+                        <button type="submit" class="btn btn-primary me-2" (click)="save()"  [disabled]="productForm.invalid">Cadastrar</button>
+                        <button type="submit" class="btn btn-danger " (click)="cancel()">Cancelar</button>
                     </div>
                 </div>
             </form>

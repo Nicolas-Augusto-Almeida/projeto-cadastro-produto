@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { product } from '../interfaces/Product';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,17 +9,23 @@ import { product } from '../interfaces/Product';
 export class ProductService {
     
     products: product[] = [];
+    apiUrl = 'http://localhost:3000/products';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   //serviço que retorna um array de produtos.
-  getProducts(): product[] {
-    return this.products;
+  getProducts(): Observable<product[]> {
+    return this.http.get<product[]>('http://localhost:3000/products');
   }
 
   //serviço que salva um produto.
-  saveProduct(product: product){
-    product.id = this.products.length + 1;
-    this.products.push(product);
+  save(product: product){
+    return this.http.post<product>('http://localhost:3000/products', product);
+  }
+  delete(product: product): Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/${product.id}`,);
+  }
+  update(product: product) : Observable<product>{
+    return this.http.put<product>(`${this.apiUrl}/${product.id}`, product);
   }
 }

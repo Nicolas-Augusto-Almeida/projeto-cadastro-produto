@@ -1,0 +1,79 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "Parafuso b4",
+      "description": "Fabricado pela zambow",
+      "price": 5,
+      "category": {
+        "id": 1,
+        "name": "Nacional"
+      },
+      "promotion": true,
+      "newproduct": false
+    },
+    {
+      "name": "Angular Cheetos",
+      "description": "Cheetos roxo",
+      "price": "5",
+      "category": {
+        "id": 2,
+        "name": "Importado"
+      },
+      "newProduct": true,
+      "id": 4
+    },
+    {
+      "name": "Java Shield",
+      "description": "Escudo feito por um mestre artesão do java",
+      "price": "999",
+      "category": {
+        "id": 3,
+        "name": "Produção Própria"
+      },
+      "promotion": true,
+      "id": 5
+    },
+    {
+      "name": "Lapis",
+      "description": "Azul",
+      "price": "1",
+      "category": {
+        "id": 1,
+        "name": "Nacional"
+      },
+      "promotion": false,
+      "newProduct": true,
+      "id": 6
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "Nacional"
+      },
+      "name": "1",
+      "description": "2",
+      "price": "3",
+      "promotion": true,
+      "id": 7
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Nacional"
+    },
+    {
+      "id": 2,
+      "name": "Importado"
+    },
+    {
+      "id": 3,
+      "name": "Produção Própria"
+    },
+    {
+      "id": 4,
+      "name": "Pessoal"
+    }
+  ]
+}
